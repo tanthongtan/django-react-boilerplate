@@ -1,3 +1,9 @@
+# environment
 venv/
+
+# npm
 /node_modules
+
+# django
+db.sqlite3
 __pycache__/
