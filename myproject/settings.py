@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #my apps
     'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#register custom user model
+AUTH_USER_MODEL = 'users.CustomUser'
