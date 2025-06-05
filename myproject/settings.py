@@ -16,7 +16,8 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DJANGO_DEBUG=(bool, False)
+    DJANGO_DEBUG=(bool, False),
+    DJANGO_ACCOUNT_EMAIL_VERIFICATION=(str, 'mandatory')
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -157,3 +158,7 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'email'}
+
+ACCOUNT_EMAIL_VERIFICATION = env('DJANGO_ACCOUNT_EMAIL_VERIFICATION')
+
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND')
