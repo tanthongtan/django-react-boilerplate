@@ -5,6 +5,9 @@ venv/
 # npm
 /node_modules
 
+# webpack
+static/
+
 # django
 db.sqlite3
 __pycache__/
