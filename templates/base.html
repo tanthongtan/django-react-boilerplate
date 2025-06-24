@@ -1,4 +1,4 @@
-{% load static %}
+{% load render_bundle from webpack_loader %}
 
 <!doctype html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Getting Started with Django and React{% endblock title %}</title>
     <meta name="description" content="A boilerplate to kickstart your hybrid Django and React application.">
-    <link rel="stylesheet" href="{% static 'index-bundle.css' %}">
+    {% render_bundle 'main' 'css' %}
   </head>
   <body>
     {% block body %}

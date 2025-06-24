@@ -1,12 +1,16 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const BundleTracker = require("webpack-bundle-tracker");
 
 module.exports = {
+  context: __dirname,
   entry: './frontend/index.tsx',  // path to our input file
   output: {
-    filename: 'index-bundle.js',  // output bundle file name
+    filename: '[name]-[contenthash].js',  // output bundle file name
     path: path.resolve(__dirname, './static'),  // path to our Django static directory
+    publicPath: "auto", // necessary for CDNs/S3/blob storages
+    clean: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -52,8 +56,9 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'index-bundle.css',
+      filename: '[name]-[contenthash].css',
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
+    new BundleTracker({ path: __dirname, filename: "webpack-stats.json" }),
   ],
 };

@@ -7,6 +7,7 @@ venv/
 
 # webpack
 static/
+/webpack-stats.json
 
 # django
 db.sqlite3
