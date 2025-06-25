@@ -61,4 +61,9 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
     new BundleTracker({ path: __dirname, filename: "webpack-stats.json" }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };
