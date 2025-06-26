@@ -50,6 +50,10 @@ module.exports = {
               }
             ]
           },
+          {
+            test: /\.(svg|png|webp|gif|woff2?)$/,
+            type: "asset/resource",
+          },
         ]
       }
     ]
