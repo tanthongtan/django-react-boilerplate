@@ -17,7 +17,8 @@ import environ
 env = environ.Env(
     # set casting, default value
     DJANGO_DEBUG=(bool, False),
-    DJANGO_ACCOUNT_EMAIL_VERIFICATION=(str, 'mandatory')
+    DJANGO_ACCOUNT_EMAIL_VERIFICATION=(str, 'mandatory'),
+    DJANGO_ALLOWED_HOSTS=(list, []),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,7 +36,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS')
 
 
 # Application definition
